@@ -58,8 +58,8 @@ class Vietnamese:
                     if idx < len(text):
                         if keep_punctuation and text[idx] in self._punctuations:
                             out.append(text[idx])
-                    if text[idx] == ' ':
-                        out.append(text[idx])
+                        if text[idx] == ' ':
+                            out.append(text[idx])
                     idx = idx + 1
         return out
 
@@ -113,4 +113,4 @@ if __name__ == '__main__':
     # Create dictionary
     vn.create_dictionary()
     # Create Corpus
-    vn.create_corpus(PROJECT_DIR + '/assets/infore/scripts.csv')
+    vn.create_corpus(str(PROJECT_DIR) + '/assets/infore/' + 'scripts.csv')
