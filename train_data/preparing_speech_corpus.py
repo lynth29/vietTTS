@@ -54,13 +54,13 @@ class Vietnamese:
                     out.append(text[idx: (idx+l)])
                     idx = idx + l
                     break
-                else:
-                    if idx < len(text):
-                        if keep_punctuation and text[idx] in self._punctuations:
-                            out.append(text[idx])
-                        if text[idx] == ' ':
-                            out.append(text[idx])
-                    idx = idx + 1
+            else:
+                if idx < len(text):
+                    if keep_punctuation and text[idx] in self._punctuations:
+                        out.append(text[idx])
+                    if text[idx] == ' ':
+                        out.append(text[idx])
+                idx = idx + 1
         return out
 
     def create_phonemes(self):
