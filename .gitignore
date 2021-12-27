@@ -1,7 +1,4 @@
 gta/
-train_data/
-test_data/
-assets/infore/
 # IDE files
 .idea
 .vscode
