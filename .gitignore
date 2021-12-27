@@ -1,6 +1,7 @@
 gta/
 train_data/content/
-Guide.md
+assets/vietsoftpro/
+hifi-gan/
 # IDE files
 .idea
 .vscode
