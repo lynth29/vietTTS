@@ -34,8 +34,8 @@ class Vietnamese:
                         ['ạ', 'ặ', 'ậ', 'ẹ', 'ệ', 'ị', 'ọ', 'ộ', 'ợ', 'ụ', 'ự', 'ỵ']
                         )
         self._punctuations  = ['.', '?', '"', '\'', ',', '-', '–', '!', ':', ';', '(', ')', '[', ']', '\n' ]
-        self._alphabet = sorted(set(''.join(consonants + vowels)))
-        self._phonemes = consonants + vowels
+        self._alphabet = sorted(set(''.join(self._consonants + self._vowels)))
+        self._phonemes = self._consonants + self._vowels
 
     # Define methods
     def text_to_phonemes(self, text, keep_punctuation=False):
