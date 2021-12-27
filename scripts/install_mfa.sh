@@ -7,6 +7,8 @@ mkdir -p $root_dir
 cd $root_dir
 
 # download miniconda3
+mac="https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.sh"
+linux="https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh"
 wget -q --show-progress https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.sh
 bash Miniconda3-latest-MacOSX-x86_64.sh -b -p $root_dir/miniconda3 -f
 rm Miniconda3-latest-MacOSX-x86_64.sh
@@ -18,4 +20,4 @@ echo -e "\n======== DONE =========="
 echo -e "\nTo activate MFA, run: source $root_dir/miniconda3/bin/activate aligner"
 echo -e "\nTo deactivate MFA, run: conda deactivate"
 echo -e "\nTo delete MFA, run: rm -rf $root_dir"
-echo -e "\nSee: https://montreal-forced-aligner.readthedocs.io/en/latest/aligning.html to know how to use MFA"
+echo -e "\nSee: https://montreal-forced-aligner.readthedocs.io/en/latest/first_steps/index.html#first-steps to know how to use MFA"
