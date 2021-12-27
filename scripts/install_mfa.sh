@@ -11,12 +11,8 @@ wget -q --show-progress https://repo.anaconda.com/miniconda/Miniconda3-latest-Ma
 bash Miniconda3-latest-MacOSX-x86_64.sh -b -p $root_dir/miniconda3 -f
 rm Miniconda3-latest-MacOSX-x86_64.sh
 
-# create py38 env
-$root_dir/miniconda3/bin/conda create -n aligner -c conda-forge openblas python=3.8 openfst pynini ngram baumwelch -y
-source $root_dir/miniconda3/bin/activate aligner
-
-# install mfa
-conda create -n aligner -c conda-forge montreal-forced-aligner
+# create env and install mfa
+$root_dir/miniconda3/bin/conda create -n aligner -c conda-forge montreal-forced-aligner python=3.8 openfst pynini ngram baumwelch -y
 
 echo -e "\n======== DONE =========="
 echo -e "\nTo activate MFA, run: source $root_dir/miniconda3/bin/activate aligner"
