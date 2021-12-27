@@ -2,13 +2,14 @@
 
 ## a script to install Montreal Forced Aligner (MFA)
 
-root_dir=${1:-/tmp/mfa}
+root_dir=$1
 mkdir -p $root_dir
 cd $root_dir
 
 # download miniconda3
 wget -q --show-progress https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.sh
 bash Miniconda3-latest-MacOSX-x86_64.sh -b -p $root_dir/miniconda3 -f
+rm Miniconda3-latest-MacOSX-x86_64.sh
 
 # create py38 env
 $root_dir/miniconda3/bin/conda create -n aligner -c conda-forge openblas python=3.8 openfst pynini ngram baumwelch -y
