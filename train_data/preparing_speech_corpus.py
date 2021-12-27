@@ -67,7 +67,7 @@ class Vietnamese:
         """Function to create phonemes.txt from words.txt"""
         lines = open(TRAIN_DIR + '/content/words.txt', 'r').readlines()
         with open(TRAIN_DIR + '/content/phonemes.txt', 'w') as f:
-            for line in tqmd(lines, desc="Creating phonemes"):
+            for line in tqdm(lines, desc="Creating phonemes"):
                 t = ' '.join(text_to_phonemes(line))
                 f.write(t + '\n')
             f.close()
