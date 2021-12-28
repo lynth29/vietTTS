@@ -56,11 +56,17 @@ bash ./scripts/download_dataset.sh [id] # [id] là id của link google drive
 ```
 **Lưu ý**: Sau khi tải dataset, kiểm tra chính tả trong các file `.txt` để tạo được file `lexicon.txt` tốt nhất.
 ### 5. Tạo lexicon, dùng MFA để khử nhiễu và tạo các file .TextGrid
-Script `align_data.sh` được viết riêng cho dataset từ `fileThuAm.zip`
+Script `align_data.sh` được viết riêng cho dataset từ `fileThuAm.zip`.
 ```sh
 bash ./scripts/align_data.sh [~] # [~] là đường dẫn cài đặt MFA
 ```
-
+Quy trình xử lý của script được diễn ra như sau:
+```flow
+1. Tải miniconda3, MFA
+2. Cài MFA
+3. Tạo file `words.txt` và `lexicon.txt`
+4. Khử nhiễu và tạo file `.TextGrid`
+```
 ### 6. Train duration model và train acoustic model
 #### a. Train duration model
 ```sh
