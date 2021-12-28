@@ -11,23 +11,23 @@ git clone https://github.com/lynth29/vietTTS-modified.git
 git clone https://github.com/NTT123/vietTTS.git
 ```
 ### 2. Copy các scripts hỗ trợ từ vietTTS-modified sang vietTTS
-#### a. Các scripts từ folder /scripts
+#### a. Các scripts từ folder `/scripts`
 ```sh
 cp vietTTS-modified/scripts/align_data.sh vietTTS/scripts
 cp vietTTS-modified/scripts/install_mfa.sh vietTTS/scripts
 cp vietTTS-modified/scripts/download_dataset.sh vietTTS/scripts
 ```
-#### b. Các scripts từ folder /train_data
+#### b. Các scripts từ folder `/train_data`
 ```sh
 mkdir vietTTS/train_data
 cp vietTTS-modified/train_data/preparing_speech_corpus.py vietTTS/train_data/preparing_speech_corpus.py
 cp vietTTS-modified/train_data/create_words.py vietTTS/train_data/create_words.py
 ```
-#### c. Các scripts trong folder vietTTS
+#### c. Các scripts trong folder `vietTTS`
 ```sh
 cp vietTTS-modified/nat/config.py vietTTS/nat/config.py
 ```
-### 3. Chạy file setup từ vietTTS
+### 3. Chạy file setup từ project vietTTS
 ```sh
 cd vietTTS
 pip3 install -e .
