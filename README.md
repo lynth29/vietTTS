@@ -1,5 +1,5 @@
 # Hướng dẫn sử dụng vietTTS
-*Updated: 27/12/2021*
+*Updated: 28/12/2021*
 
 ### 1. Clone các project cần thiết
 #### a. Clone vietTTS-modified để lấy các scripts hỗ trợ
