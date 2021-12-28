@@ -14,17 +14,21 @@ git clone https://github.com/NTT123/vietTTS.git
 ```sh
 cp vietTTS-modified/scripts/align_data.sh vietTTS/scripts
 cp vietTTS-modified/scripts/install_mfa.sh vietTTS/scripts
-cp vietTTS-modified/assets/infore/lexicon.txt vietTTS/assets/infore/lexicon.txt
-cp vietTTS-modified/assets/infore/scripts.csv vietTTS/assets/infore/scripts.csv
+cp vietTTS-modified/scripts/download_dataset.sh vietTTS/scripts
 mkdir vietTTS/train_data
 cp vietTTS-modified/train_data/preparing_speech_corpus.py vietTTS/train_data/preparing_speech_corpus.py
+cp vietTTS-modified/train_data/create_words.py vietTTS/train_data/create_words.py
 ```
 ### B3. Chạy file setup từ vietTTS
 ```sh
 cd vietTTS
 pip3 install -e .
 ```
-### B4. Convert dataset
+### B4. Tải dataset
 ```sh
-bash ./scripts/align_data.sh ~ # ~ là đường dẫn cài đặt MFA
+bash ./scripts/download_dataset.sh [id] # [id] là id của link google drive
+```
+### B4. Dùng MFA để chuyển hóa dataset
+```sh
+bash ./scripts/align_data.sh [~] # [~] là đường dẫn cài đặt MFA
 ```
