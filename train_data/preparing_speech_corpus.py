@@ -106,6 +106,8 @@ class Vietnamese:
         print("Finish creating speech corpus")
 
 if __name__ == '__main__':
+    print("=="*10)
+    print("Creating phonemes and dictionary...")
     # Calling classes
     vn = Vietnamese()
     # Create phonemes

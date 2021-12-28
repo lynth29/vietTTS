@@ -149,12 +149,18 @@ class VietSoftPro:
         return sorted([*{*output}])
 
 if __name__ == '__main__':
+    print("=="*10)
+    print("Creating words list...")
     source = VietSoftPro(26)
     raw_words = source.txt_to_words()
+    print("Got all unique words")
     first = source.rom_to_words(raw_words)
+    print("Converted roman numerals to integer")
     last = source.num_to_words(first)
+    print("Converted integer to words")
     with open(TRAIN_DIR + '/contents/words.txt','w') as f:
         for word in last:
             if len(word) > 1:
                 f.write(word + "\n")
         f.close()
+    print("Exported words.txt")
