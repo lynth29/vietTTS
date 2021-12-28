@@ -9,7 +9,6 @@ import re
 
 # Define dirs
 PROJECT_DIR = Path(__file__).absolute().parents[1]
-ASSETS_DIR = os.path.join(PROJECT_DIR, "assets", "vietsoftpro", "fileThuAm")
 TRAIN_DIR = os.path.join(PROJECT_DIR, "train_data")
 
 #  Define class
@@ -99,7 +98,7 @@ class VietSoftPro:
             if n < 10:
                 n = "0" + str(n)
             try:
-                with open(ASSETS_DIR + '/' + str(n) + '.txt', 'r') as f:
+                with open(TRAIN_DIR + '/vietsoftpro/' + str(n) + '.txt', 'r') as f:
                     print(f'Getting words from {n}.txt')
                     txt = f.read()
                     # Convert with tech_dict
@@ -158,7 +157,7 @@ if __name__ == '__main__':
     print("Converted roman numerals to integer")
     last = source.num_to_words(first)
     print("Converted integer to words")
-    with open(TRAIN_DIR + '/contents/words.txt','w') as f:
+    with open(TRAIN_DIR + '/content/words.txt','w') as f:
         for word in last:
             if len(word) > 1:
                 f.write(word + "\n")
