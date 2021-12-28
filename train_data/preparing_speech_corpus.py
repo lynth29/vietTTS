@@ -65,8 +65,8 @@ class Vietnamese:
 
     def create_phonemes(self):
         """Function to create phonemes.txt from words.txt"""
-        lines = open(TRAIN_DIR + '/content/words.txt', 'r').readlines()
-        with open(TRAIN_DIR + '/content/phonemes.txt', 'w') as f:
+        lines = open(TRAIN_DIR + '/contents/words.txt', 'r').readlines()
+        with open(TRAIN_DIR + '/contents/phonemes.txt', 'w') as f:
             for line in tqdm(lines, desc="Creating phonemes"):
                 t = ' '.join(self.text_to_phonemes(line))
                 f.write(t + '\n')
@@ -75,9 +75,9 @@ class Vietnamese:
 
     def create_dictionary(self):
         """Function to create dictionary.txt from phonemes.txt"""
-        ws = open(TRAIN_DIR + '/content/words.txt').readlines()
-        ps = open(TRAIN_DIR + '/content/phonemes.txt').readlines()
-        with open(TRAIN_DIR + '/content/dictionary.txt', 'w') as f:
+        ws = open(TRAIN_DIR + '/contents/words.txt').readlines()
+        ps = open(TRAIN_DIR + '/contents/phonemes.txt').readlines()
+        with open(TRAIN_DIR + '/contents/dictionary.txt', 'w') as f:
             for w, p in zip(ws, ps):
                 w = w.strip()
                 p = p.strip()
@@ -100,7 +100,7 @@ class Vietnamese:
         for l in s:
             fn, txt, t = l.strip().split('|')
             fn = Path(fn).stem
-            with open(TRAIN_DIR + f'/content/wavs/{fn}.txt', 'w') as f:
+            with open(TRAIN_DIR + f'/contents/wavs/{fn}.txt', 'w') as f:
                 f.write(txt + '\n')
                 f.close()
         print("Finish creating speech corpus")
