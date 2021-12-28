@@ -1,6 +1,6 @@
 gta/
 train_data/content/
-assets/vietsoftpro/
+train_data/vietsoftpro/
 hifi-gan/
 **/test.py
 # IDE files
