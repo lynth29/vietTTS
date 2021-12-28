@@ -43,7 +43,6 @@ class Vietnamese:
         """Function to convert text to phonemes"""
         # Normalize text using unicodedata
         text = unicodedata.normalize('NFKC', text.strip().lower())
-        print("Finish normalizing")
         idx = 0
         # Create an empty list to store output
         out = []
