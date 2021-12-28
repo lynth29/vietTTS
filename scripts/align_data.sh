@@ -18,7 +18,7 @@ echo "Finish preparing contents to align dataset into pretrained dataset"
 echo "======="
 # activate MFA
 echo "Activate MFA and align dataset"
-source $1/miniconda3/bin/activate aligner; mfa train --clean -C ./train_data/contents/wavs ./train_data/contents/dictionary.txt ./train_data/contents/test
+source $1/miniconda3/bin/activate aligner; mfa train --clean -C ./assets/vietsoftpro/fileThuAm ./train_data/contents/dictionary.txt ./train_data/contents/test
 echo "Finish aligning dataset"
 conda deactivate
 echo "Deactivate MFA"
