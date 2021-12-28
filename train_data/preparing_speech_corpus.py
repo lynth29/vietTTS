@@ -99,7 +99,7 @@ class Vietnamese:
         for l in s:
             fn, txt, t = l.strip().split('|')
             fn = Path(fn).stem
-            with open(TRAIN_DIR + '/vietsoftpro/' + f'{fn}.txt', 'w') as f:
+            with open(TRAIN_DIR + '/content/wavs/' + f'{fn}.txt', 'w') as f:
                 f.write(txt + '\n')
                 f.close()
         print("Finish creating speech corpus")

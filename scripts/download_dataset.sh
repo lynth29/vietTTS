@@ -1,5 +1,5 @@
 # train_data dir
-data_root="./assets/vietsoftpro" # modify this
+data_root="./train_data/wavs" # modify this
 # GGdrive id
 ggdrive_id=$1
 # Make dir

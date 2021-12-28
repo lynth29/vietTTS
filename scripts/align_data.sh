@@ -6,9 +6,9 @@ bash ./scripts/install_mfa.sh $1
 
 # Create dirs in train_data
 echo "Preparing contents to align dataset..."
-mkdir ./train_data/contents
-mkdir ./train_data/contents/wavs
-mkdir ./train_data/contents/test
+mkdir ./train_data/content
+mkdir ./train_data/content/wavs
+mkdir ./train_data/content/aligned
 
 # Create words.txt files
 python -m train_data.create_words
@@ -18,7 +18,7 @@ echo "Finish preparing contents to align dataset into pretrained dataset"
 echo "======="
 # activate MFA
 echo "Activate MFA and align dataset"
-source $1/miniconda3/bin/activate aligner; mfa train --clean -C ./assets/vietsoftpro/fileThuAm ./train_data/contents/dictionary.txt ./train_data/contents/test
+source $1/miniconda3/bin/activate aligner; mfa train --clean -C ./train_data/content/wavs ./train_data/content/lexicon.txt ./train_data/content/aligned
 echo "Finish aligning dataset"
 conda deactivate
 echo "Deactivate MFA"

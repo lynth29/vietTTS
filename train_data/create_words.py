@@ -98,7 +98,7 @@ class VietSoftPro:
             if n < 10:
                 n = "0" + str(n)
             try:
-                with open(TRAIN_DIR + '/vietsoftpro/' + str(n) + '.txt', 'r') as f:
+                with open(TRAIN_DIR + '/content/wavs/' + str(n) + '.txt', 'r') as f:
                     print(f'Getting words from {n}.txt')
                     txt = f.read()
                     # Convert with tech_dict
