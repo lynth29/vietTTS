@@ -39,8 +39,8 @@ class FLAGS(Namespace):
     weight_decay = 1e-4
 
     # ckpt
-    ckpt_dir = Path("assets/infore/nat")
-    data_dir = Path("assets/infore/data")
+    ckpt_dir = Path("assets/vietsoftpro/nat")
+    data_dir = Path("assets/vietsoftpro/data")
     data_dir = Path("train_data")
 
 
