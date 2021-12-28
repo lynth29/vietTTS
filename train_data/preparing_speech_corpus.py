@@ -12,6 +12,7 @@ from tqdm import tqdm
 
 # Define dirs
 PROJECT_DIR = Path(__file__).absolute().parents[1]
+ASSETS_DIR = os.path.join(PROJECT_DIR, "assets", "vietsoftpro", "fileThuAm")
 TRAIN_DIR = os.path.join(PROJECT_DIR, "train_data")
 
 # Define classes
@@ -100,7 +101,7 @@ class Vietnamese:
         for l in s:
             fn, txt, t = l.strip().split('|')
             fn = Path(fn).stem
-            with open(TRAIN_DIR + f'/contents/wavs/{fn}.txt', 'w') as f:
+            with open(ASSETS_DIR + f'{fn}.txt', 'w') as f:
                 f.write(txt + '\n')
                 f.close()
         print("Finish creating speech corpus")
@@ -113,4 +114,4 @@ if __name__ == '__main__':
     # Create dictionary
     vn.create_dictionary()
     # Create Corpus
-    vn.create_corpus(str(PROJECT_DIR) + '/assets/infore/' + 'scripts.csv')
+    # vn.create_corpus(str(PROJECT_DIR) + '/assets/infore/' + 'scripts.csv')
