@@ -30,7 +30,7 @@ cp vietTTS-modified/train_data/create_words.py vietTTS/train_data/create_words.p
 ```
 #### c. Các scripts từ folder `./vietTTS`
 ```sh
-cp vietTTS-modified/nat/config.py vietTTS/nat/config.py
+cp vietTTS-modified/vietTTS/nat/config.py vietTTS/vietTTS/nat/config.py
 ```
 File `config.py` đã thay đổi đường dẫn của `ckpt_dir` và `data_dir` để phù hợp với dataset từ `fileThuAm.zip`.
 - Đường dẫn cũ:

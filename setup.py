@@ -9,7 +9,6 @@ install_requires = [
     "fire",
     "gdown",
     "jax",
-    "jaxlib",
     "librosa",
     "optax",
     "tabulate",
