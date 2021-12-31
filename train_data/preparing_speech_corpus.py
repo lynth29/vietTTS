@@ -23,7 +23,8 @@ class Vietnamese:
         self._consonants = [
                             'ngh',
                             'ch', 'gh', 'gi', 'kh', 'ng', 'nh', 'ph', 'qu', 'tr', 'th',
-                            'b', 'c', 'd', 'đ', 'g', 'h', 'k', 'l', 'm', 'n', 'p', 'r', 's', 't', 'v', 'x'
+                            'b', 'c', 'd', 'đ', 'g', 'h', 'k', 'l', 'm', 'n', 'p', 'r', 's', 't', 'v', 'x',
+                            'f', 'j', 'z'
                             ]
         self._vowels = (
                         ['a', 'ă', 'â', 'e', 'ê', 'i', 'o', 'ô', 'ơ', 'u', 'ư', 'y'] +
