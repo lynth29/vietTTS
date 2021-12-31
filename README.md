@@ -47,10 +47,22 @@ data_dir = Path("assets/vietsoftpro/data")
 ```
 
 ### 3. Chuyển sang project vietTTS để bắt đầu cài đặt các thư viện cần thiết
+#### a. Cài đặt MFA
 ```sh
 cd vietTTS
-bash ./scripts/install_mfa.sh
+bash ./scripts/install_mfa.sh ~
+```
+#### b. Activate môi trường miniconda MFA
+```sh
+source /miniconda3/bin/activate aligner
+```
+#### c. Cài đặt các thư viện cần thiết
+```sh
 pip3 install -r requirements.txt
+```
+#### d. Trong trường hợp dùng CUDA và cuDNN, cần cài `jax` riêng
+```sh
+pip3 install jax[cuda11_cudnn82] -f https://storage.googleapis.com/jax-releases/jax_releases.html
 ```
 ### 4. Tải dataset
 Dataset sau khi tải được unzip tại folder `./train_data/wavs`.
