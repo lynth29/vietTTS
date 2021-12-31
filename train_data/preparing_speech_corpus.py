@@ -77,7 +77,7 @@ class Vietnamese:
         """Function to create dictionary.txt from phonemes.txt"""
         ws = open(TRAIN_DIR + '/content/words.txt').readlines()
         ps = open(TRAIN_DIR + '/content/phonemes.txt').readlines()
-        with open(TRAIN_DIR + '/content/dictionary.txt', 'w') as f:
+        with open(TRAIN_DIR + '/content/lexicon.txt', 'w') as f:
             for w, p in zip(ws, ps):
                 w = w.strip()
                 p = p.strip()
@@ -92,7 +92,7 @@ class Vietnamese:
                     p = "qu i"
                 f.write(f'{w}\t{p}\n')
             f.close()
-        print("Finish creating dictionary.txt")
+        print("Finish creating lexicon.txt")
 
     def create_corpus(self, script_csv):
         """Function to create speech corpus from scripts"""
