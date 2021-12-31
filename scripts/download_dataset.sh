@@ -8,7 +8,7 @@ mkdir -p $data_root
 cd $data_root
 # Download
 echo "Downloading dataset..."
-gdown --id $1 -O fileThuAm
-unzip -q fileThuAm
+gdown --id $1
+unzip -q fileThuAm.zip
 echo "Unzipped dataset"
 popd
