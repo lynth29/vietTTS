@@ -5,6 +5,7 @@
 - Python >= 3.8
 - Git
 - Bash
+- CUDA 11.1 và cuDNN 8.2.1 for CUDA 11.x
 
 ### 1. Clone các project cần thiết
 #### a. Clone vietTTS-modified để lấy các scripts hỗ trợ
@@ -44,10 +45,11 @@ ckpt_dir = Path("assets/vietsoftpro/nat")
 data_dir = Path("assets/vietsoftpro/data")
 ```
 
-### 3. Chạy file setup từ project vietTTS
+### 3. Chuyển sang project vietTTS để bắt đầu cài đặt các thư viện cần thiết
 ```sh
 cd vietTTS
-pip3 install -e .
+bash ./scripts/install_mfa.sh
+pip3 install -r requirements.txt
 ```
 ### 4. Tải dataset
 Dataset sau khi tải được unzip tại folder `./train_data/wavs`.
@@ -62,10 +64,8 @@ bash ./scripts/align_data.sh [~] # [~] là đường dẫn cài đặt MFA
 ```
 Quy trình xử lý của script được diễn ra như sau:
 ```flow
-1. Tải miniconda3, MFA
-2. Cài MFA
-3. Tạo file `words.txt` và `lexicon.txt`
-4. Khử nhiễu và tạo file `.TextGrid`
+1. Tạo file `words.txt` và `lexicon.txt`
+2. Khử nhiễu và tạo file `.TextGrid`
 ```
 ### 6. Train duration model và train acoustic model
 #### a. Train duration model
