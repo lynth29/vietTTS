@@ -5,7 +5,7 @@
 - Python >= 3.8
 - Git
 - Bash
-- CUDA 11.1 và cuDNN 8.2.1 for CUDA 11.x
+- CUDA 10.2 và cuDNN 8.3.0 for CUDA 10.2
 
 ### 1. Clone các project cần thiết
 #### a. Clone vietTTS-modified để lấy các scripts hỗ trợ
