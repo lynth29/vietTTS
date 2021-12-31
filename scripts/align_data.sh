@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# A script to run Montreal Forced Aligner (MFA) 
+# A script to run Montreal Forced Aligner (MFA)
 # Create dirs in train_data
 echo "======="
 echo "Preparing contents to align dataset..."
@@ -17,7 +17,7 @@ echo "Finish preparing contents to align dataset into pretrained dataset"
 echo "======="
 # activate MFA and align dataset
 echo "Activate MFA and align dataset"
-source $1/miniconda3/bin/activate aligner; mfa train --clean -C ./train_data/content/wavs ./train_data/content/lexicon.txt ./train_data/content/aligned
+source /miniconda3/bin/activate aligner; mfa train --clean -C ./train_data/content/wavs ./train_data/content/lexicon.txt ./train_data/content/aligned
 echo "Finish aligning dataset"
 conda deactivate
 echo "Deactivate MFA"
