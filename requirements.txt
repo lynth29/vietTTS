@@ -4,7 +4,7 @@ numpy==1.21.5
 scipy==1.7.3
 einops==0.3.2
 fire==0.4.0
-haiku==0.01
+dm-haiku==0.01
 jax==0.2.26
 librosa==0.8.1
 optax==0.1.0
@@ -12,3 +12,4 @@ soundfile==0.10.3.post1
 tabulate==0.8.9
 textgrid==1.5
 torch==1.10.1
+gdown==4.2.0
