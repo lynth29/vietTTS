@@ -14,3 +14,7 @@ gdown --id $1
 unzip -q fileThuAm.zip
 echo "Unzipped dataset"
 popd
+# Move all files to wavs
+mv $data_root/fileThuAm/textBoTruong/*.txt $data_root
+mv $data_root/fileThuAm/*.wav $data_root
+rm -r $data_root/fileThuAm
