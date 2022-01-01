@@ -73,7 +73,7 @@ bash ./scripts/download_dataset.sh [id] # [id] là id của link google drive
 ### 5. Tạo lexicon, dùng MFA để khử nhiễu và tạo các file .TextGrid
 Script `align_data.sh` được viết riêng cho dataset từ `fileThuAm.zip`.
 ```sh
-bash ./scripts/align_data.sh [~] # [~] là đường dẫn cài đặt MFA
+bash ./scripts/align_data.sh
 ```
 Quy trình xử lý của script được diễn ra như sau:
 ```flow
