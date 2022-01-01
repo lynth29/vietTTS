@@ -41,7 +41,7 @@ class FLAGS(Namespace):
     # ckpt
     ckpt_dir = Path("assets/vietsoftpro/nat")
     data_dir = Path("assets/vietsoftpro/data")
-    data_dir = Path("train_data")
+    data_dir = Path("train_data/content")
 
 
 class DurationInput(NamedTuple):
