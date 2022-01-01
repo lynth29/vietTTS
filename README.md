@@ -19,15 +19,12 @@ git clone https://github.com/NTT123/vietTTS.git
 ### 2. Copy các scripts hỗ trợ từ vietTTS-modified sang vietTTS
 #### a. Các scripts từ folder `./scripts`
 ```sh
-cp vietTTS-modified/scripts/create_lexicon.sh vietTTS/scripts
-cp vietTTS-modified/scripts/install_mfa.sh vietTTS/scripts
-cp vietTTS-modified/scripts/download_dataset.sh vietTTS/scripts
+cp -r vietTTS-modified/scripts vietTTS/scripts
 ```
 #### b. Các scripts từ folder `./train_data`
 ```sh
 mkdir vietTTS/train_data
-cp vietTTS-modified/train_data/preparing_speech_corpus.py vietTTS/train_data/preparing_speech_corpus.py
-cp vietTTS-modified/train_data/create_words.py vietTTS/train_data/create_words.py
+cp -r vietTTS-modified/train_data vietTTS/train_data
 ```
 #### c. Các scripts từ folder `./vietTTS`
 ```sh
@@ -69,10 +66,11 @@ Dataset sau khi tải được unzip tại folder `./train_data/content/wavs`.
 bash ./scripts/download_dataset.sh [id] # [id] là id của link google drive
 ```
 **Lưu ý**: Sau khi tải dataset, kiểm tra chính tả trong các file `.txt` để tạo được file `lexicon.txt` tốt nhất.
-### 5. Tạo lexicon
+### 5. Tạo lexicon và align data
 Script `create_lexicon.sh` được viết riêng cho dataset từ `fileThuAm.zip`.
 ```sh
 bash ./scripts/create_lexicon.sh
+bash ./scripts/align_data.sh
 ```
 ### 6. Train duration model và train acoustic model
 #### a. Train duration model
