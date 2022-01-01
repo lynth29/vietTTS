@@ -16,10 +16,10 @@ python -m train_data.preparing_speech_corpus
 echo "Finish preparing contents to align dataset into pretrained dataset"
 echo "======="
 # activate MFA and align dataset
-echo "Activate MFA"
-source /miniconda3/bin/activate aligner
-echo "Denoising and aligning"
-mfa train --clean -C ./train_data/content/wavs ./train_data/content/lexicon.txt ./train_data/content/aligned
-echo "Finish aligning dataset"
-conda deactivate
-echo "Deactivate MFA"
+# echo "Activate MFA"
+# source /miniconda3/bin/activate aligner
+# echo "Denoising and aligning"
+# mfa train --clean -C ./train_data/content/wavs ./train_data/content/lexicon.txt ./train_data/content/aligned
+# echo "Finish aligning dataset"
+# conda deactivate
+# echo "Deactivate MFA"
