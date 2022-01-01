@@ -1,5 +1,3 @@
-# deactivate mfa
-conda deactivate
 # train_data dir
 data_root="./train_data/content/wavs" # modify this if change dir
 # GGdrive id

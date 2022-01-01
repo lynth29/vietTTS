@@ -6,7 +6,6 @@
 - Git
 - Bash
 - CUDA 11.5 và cuDNN 8.3.0 for CUDA 11.5
-- Conda mới nhất
 
 ### 1. Clone các project cần thiết
 #### a. Clone vietTTS-modified để lấy các scripts hỗ trợ
@@ -20,7 +19,7 @@ git clone https://github.com/NTT123/vietTTS.git
 ### 2. Copy các scripts hỗ trợ từ vietTTS-modified sang vietTTS
 #### a. Các scripts từ folder `./scripts`
 ```sh
-cp vietTTS-modified/scripts/align_data.sh vietTTS/scripts
+cp vietTTS-modified/scripts/create_lexicon.sh vietTTS/scripts
 cp vietTTS-modified/scripts/install_mfa.sh vietTTS/scripts
 cp vietTTS-modified/scripts/download_dataset.sh vietTTS/scripts
 ```
@@ -39,11 +38,13 @@ File `config.py` đã thay đổi đường dẫn của `ckpt_dir` và `data_dir
 ```sh
 ckpt_dir = Path("assets/infore/nat")
 data_dir = Path("assets/infore/data")
+data_dir = Path("train_data")
 ```
 - Đường dẫn mới:
 ```sh
 ckpt_dir = Path("assets/vietsoftpro/nat")
 data_dir = Path("assets/vietsoftpro/data")
+data_dir = Path("train_data/content")
 ```
 
 ### 3. Chuyển sang project vietTTS để bắt đầu cài đặt các thư viện cần thiết
@@ -52,7 +53,7 @@ data_dir = Path("assets/vietsoftpro/data")
 cd vietTTS
 pip3 install -r requirements.txt
 ```
-#### b. Trong trường hợp dùng CUDA và cuDNN, cần cài `jax` riêng
+#### b. Trong trường hợp dùng CUDA và cuDNN, cần cài `jax`và `dm-haiku` riêng
 ```sh
 pip3 install jax[cuda11_cudnn82] -f https://storage.googleapis.com/jax-releases/jax_releases.html
 pip3 install git+https://github.com/deepmind/dm-haiku
@@ -61,10 +62,6 @@ pip3 install git+https://github.com/deepmind/dm-haiku
 ```sh
 cd vietTTS
 bash ./scripts/install_mfa.sh ~
-```
-#### d. Activate môi trường miniconda MFA
-```sh
-source /miniconda3/bin/activate aligner
 ```
 ### 4. Tải dataset
 Dataset sau khi tải được unzip tại folder `./train_data/content/wavs`.
