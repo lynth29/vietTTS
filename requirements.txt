@@ -1,10 +1,10 @@
 matplotlib==3.5.1
 tqdm==4.62.3
+daal==2021.2.3
 numpy==1.21.5
 scipy==1.7.3
 einops==0.3.2
 fire==0.4.0
-dm-haiku==0.0.1
 jax==0.2.26
 librosa==0.8.1
 optax==0.1.0
