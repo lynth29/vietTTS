@@ -47,38 +47,35 @@ data_dir = Path("assets/vietsoftpro/data")
 ```
 
 ### 3. Chuyển sang project vietTTS để bắt đầu cài đặt các thư viện cần thiết
-#### a. Cài đặt MFA
+#### a. Cài đặt các thư viện cần thiết
+```sh
+cd vietTTS
+pip3 install -r requirements.txt
+```
+#### b. Trong trường hợp dùng CUDA và cuDNN, cần cài `jax` riêng
+```sh
+pip3 install jax[cuda11_cudnn82] -f https://storage.googleapis.com/jax-releases/jax_releases.html
+pip3 install git+https://github.com/deepmind/dm-haiku
+```
+#### c. Cài đặt MFA
 ```sh
 cd vietTTS
 bash ./scripts/install_mfa.sh ~
 ```
-#### b. Activate môi trường miniconda MFA
+#### d. Activate môi trường miniconda MFA
 ```sh
 source /miniconda3/bin/activate aligner
 ```
-#### c. Cài đặt các thư viện cần thiết
-```sh
-pip3 install -r requirements.txt
-```
-#### d. Trong trường hợp dùng CUDA và cuDNN, cần cài `jax` riêng
-```sh
-pip3 install jax[cuda11_cudnn82] -f https://storage.googleapis.com/jax-releases/jax_releases.html
-```
 ### 4. Tải dataset
-Dataset sau khi tải được unzip tại folder `./train_data/wavs`.
+Dataset sau khi tải được unzip tại folder `./train_data/content/wavs`.
 ```sh
 bash ./scripts/download_dataset.sh [id] # [id] là id của link google drive
 ```
 **Lưu ý**: Sau khi tải dataset, kiểm tra chính tả trong các file `.txt` để tạo được file `lexicon.txt` tốt nhất.
-### 5. Tạo lexicon, dùng MFA để khử nhiễu và tạo các file .TextGrid
-Script `align_data.sh` được viết riêng cho dataset từ `fileThuAm.zip`.
+### 5. Tạo lexicon
+Script `create_lexicon.sh` được viết riêng cho dataset từ `fileThuAm.zip`.
 ```sh
-bash ./scripts/align_data.sh
-```
-Quy trình xử lý của script được diễn ra như sau:
-```flow
-1. Tạo file `words.txt` và `lexicon.txt`
-2. Khử nhiễu và tạo file `.TextGrid`
+bash ./scripts/create_lexicon.sh
 ```
 ### 6. Train duration model và train acoustic model
 #### a. Train duration model
