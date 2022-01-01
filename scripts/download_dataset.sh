@@ -5,10 +5,11 @@ ggdrive_id=$1
 # Make dir
 pushd .
 mkdir -p $data_root
-cd $data_root
 # Download
 echo "Downloading dataset..."
-gdown --id $1
+python ./scripts/download_fileThuAm.py
+mv ./scripts/fileThuAm.zip $data_root
+cd $data_root
 unzip -q fileThuAm.zip
 echo "Unzipped dataset"
 popd

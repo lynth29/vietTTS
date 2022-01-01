@@ -30,6 +30,10 @@ cp -r vietTTS-modified/train_data vietTTS/train_data
 ```sh
 cp vietTTS-modified/vietTTS/nat/config.py vietTTS/vietTTS/nat/config.py
 ```
+#### d. File requirements.txt
+```sh
+cp vietTTS-modified/requirements.txt vietTTS/
+```
 File `config.py` đã thay đổi đường dẫn của `ckpt_dir` và `data_dir` để phù hợp với dataset từ `fileThuAm.zip`.
 - Đường dẫn cũ:
 ```sh
@@ -48,12 +52,12 @@ data_dir = Path("train_data/content")
 #### a. Cài đặt các thư viện cần thiết
 ```sh
 cd vietTTS
-pip3 install -r requirements.txt
+python3 -m pip3 install -r requirements.txt
 ```
 #### b. Trong trường hợp dùng CUDA và cuDNN, cần cài `jax`và `dm-haiku` riêng
 ```sh
-pip3 install jax[cuda11_cudnn82] -f https://storage.googleapis.com/jax-releases/jax_releases.html
-pip3 install git+https://github.com/deepmind/dm-haiku
+python3 -m pip3 install jax[cuda11_cudnn82] -f https://storage.googleapis.com/jax-releases/jax_releases.html
+python3 -m pip3 install git+https://github.com/deepmind/dm-haiku
 ```
 #### c. Cài đặt MFA
 ```sh
