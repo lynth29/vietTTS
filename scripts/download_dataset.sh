@@ -1,14 +1,12 @@
 # train_data dir
 data_root="./train_data/content/wavs" # modify this if change dir
-# GGdrive id
-ggdrive_id=$1
 # Make dir
 pushd .
 mkdir -p $data_root
 # Download
 echo "Downloading dataset..."
 python ./scripts/download_fileThuAm.py
-mv ./scripts/fileThuAm.zip $data_root
+mv ./fileThuAm.zip $data_root
 cd $data_root
 unzip -q fileThuAm.zip
 echo "Unzipped dataset"

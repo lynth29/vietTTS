@@ -67,7 +67,7 @@ bash ./scripts/install_mfa.sh ~
 ### 4. Tải dataset
 Dataset sau khi tải được unzip tại folder `./train_data/content/wavs`.
 ```sh
-bash ./scripts/download_dataset.sh [id] # [id] là id của link google drive
+bash ./scripts/download_dataset.sh
 ```
 **Lưu ý**: Sau khi tải dataset, kiểm tra chính tả trong các file `.txt` để tạo được file `lexicon.txt` tốt nhất.
 ### 5. Tạo lexicon và align data
