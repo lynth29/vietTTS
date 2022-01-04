@@ -1,5 +1,5 @@
 # Hướng dẫn sử dụng vietTTS
-*Updated: 28/12/2021*
+*Updated: 04/01/2022*
 
 #### Yêu cầu cơ bản:
 - Python >= 3.8
@@ -19,12 +19,12 @@ git clone https://github.com/NTT123/vietTTS.git
 ### 2. Copy các scripts hỗ trợ từ vietTTS-modified sang vietTTS
 #### a. Các scripts từ folder `./scripts`
 ```sh
-cp -r vietTTS-modified/scripts vietTTS/scripts
+cp -r vietTTS-modified/scripts vietTTS/
 ```
 #### b. Các scripts từ folder `./train_data`
 ```sh
 mkdir vietTTS/train_data
-cp -r vietTTS-modified/train_data vietTTS/train_data
+cp -r vietTTS-modified/train_data vietTTS/
 ```
 #### c. Các scripts từ folder `./vietTTS`
 ```sh
@@ -62,7 +62,7 @@ python3 -m pip3 install git+https://github.com/deepmind/dm-haiku
 #### c. Cài đặt MFA
 ```sh
 cd vietTTS
-bash ./scripts/install_mfa.sh ~
+bash ./scripts/install_mfa.sh /tmp/mfa
 ```
 ### 4. Tải dataset
 Dataset sau khi tải được unzip tại folder `./train_data/content/wavs`.
