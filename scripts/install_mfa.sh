@@ -2,7 +2,7 @@
 
 ## a script to install Montreal Forced Aligner (MFA)
 
-root_dir=$1
+root_dir=${1:-/tmp/mfa}
 mkdir -p $root_dir
 cd $root_dir
 
