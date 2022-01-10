@@ -57,7 +57,6 @@ def textgrid_data_loader(data_dir: Path, seq_len: int, batch_size: int, mode: st
     L = len(tg_files) * 95 // 100
     assert mode in ["train", "val"]
     phonemes = load_phonemes_set_from_lexicon_file(data_dir / "lexicon.txt")
-    print(phonemes)
     if mode == "train":
         tg_files = tg_files[:L]
     if mode == "val":
