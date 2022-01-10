@@ -38,6 +38,7 @@ def load_textgrid(fn: Path):
     widx = 0
     assert tg[1][0].minTime == 0, "The first phoneme has to start at time 0"
     for p in tg[1]:
+        print(f"p as {p} and word as {words[widx]}")
         if not p in words[widx]:
             widx = widx + 1
             if len(words[widx - 1].mark) > 0:
@@ -62,7 +63,7 @@ def textgrid_data_loader(data_dir: Path, seq_len: int, batch_size: int, mode: st
         tg_files = tg_files[L:]
 
     data = []
-    for fn in tg_files:
+    for fn in tqdm(tg_files, total=len(tg_files), desc="Loading"):
         print(f"Loading textgrid from {fn}")
         ps, ds = zip(*load_textgrid(fn))
         ps = [phonemes.index(p) for p in ps if p != '']
