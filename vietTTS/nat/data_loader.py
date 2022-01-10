@@ -34,6 +34,7 @@ def is_in_word(phone, word):
 
 def load_textgrid(fn: Path):
     tg = textgrid.TextGrid.fromFile(str(fn.resolve()))
+    print(f"tg now is:\n{tg}")
     data = []
     words = list(tg[0])
     widx = 0
@@ -48,6 +49,8 @@ def load_textgrid(fn: Path):
                 break
             assert p in words[widx], f"mismatched word vs phoneme with p as {p} and word as {words[widx]}"
         data.append((p.mark.strip().lower(), p.duration()))
+    print(f"data now is:\n{data}")
+    print("--"*10)
     return data
 
 
