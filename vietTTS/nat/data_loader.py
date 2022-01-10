@@ -44,7 +44,7 @@ def load_textgrid(fn: Path):
                 data.append((FLAGS.special_phonemes[FLAGS.word_end_index], 0.0))
             if widx >= len(words):
                 break
-            assert p in words[widx], "mismatched word vs phoneme"
+            assert p in words[widx], f"mismatched word vs phoneme with p as {p} and word as {words[widx]}"
         data.append((p.mark.strip().lower(), p.duration()))
     return data
 
