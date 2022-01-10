@@ -12,7 +12,7 @@ def load_phonemes_set_from_lexicon_file(fn: Path):
     S = set()
     for line in open(fn, "r").readlines():
         word, phonemes = line.strip().lower().split("\t")
-        phonemes = phonemes.split(' ')
+        phonemes = phonemes.split()
         S.update(phonemes)
 
     S = FLAGS.special_phonemes + sorted(list(S))
@@ -65,7 +65,7 @@ def textgrid_data_loader(data_dir: Path, seq_len: int, batch_size: int, mode: st
     for fn in tg_files:
         ps, ds = zip(*load_textgrid(fn))
         print(ps)
-        ps = [phonemes.index(p) for p in ps]
+        ps = [phonemes.index(p) for p in ps if p != '']
         l = len(ps)
         ps = pad_seq(ps, seq_len, 0)
         ds = pad_seq(ds, seq_len, 0)
