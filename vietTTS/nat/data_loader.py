@@ -67,6 +67,7 @@ def textgrid_data_loader(data_dir: Path, seq_len: int, batch_size: int, mode: st
         print(f"Loading textgrid from {fn}")
         ps, ds = zip(*load_textgrid(fn))
         ps = [phonemes.index(p) for p in ps if p != '']
+        l = len(ps)
         ps = pad_seq(ps, seq_len, 0)
         ds = pad_seq(ds, seq_len, 0)
         data.append((ps, ds, l))
