@@ -60,6 +60,7 @@ def textgrid_data_loader(data_dir: Path, seq_len: int, batch_size: int, mode: st
     L = len(tg_files) * 95 // 100
     assert mode in ["train", "val"]
     phonemes = load_phonemes_set_from_lexicon_file(data_dir / "lexicon.txt")
+    phonemes = phonemes.append('')
     if mode == "train":
         tg_files = tg_files[:L]
     if mode == "val":
@@ -69,7 +70,7 @@ def textgrid_data_loader(data_dir: Path, seq_len: int, batch_size: int, mode: st
     for fn in tqdm(tg_files, total=len(tg_files), desc="Loading"):
         print(f"Loading textgrid from {fn}")
         ps, ds = zip(*load_textgrid(fn))
-        ps = [phonemes.index(p) for p in ps if p != '']
+        ps = [phonemes.index(p) for p in ps]
         l = len(ps)
         ps = pad_seq(ps, seq_len, 0)
         ds = pad_seq(ds, seq_len, 0)
