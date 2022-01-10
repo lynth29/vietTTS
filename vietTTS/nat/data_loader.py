@@ -7,6 +7,7 @@ from scipy.io import wavfile
 
 from .config import FLAGS, AcousticInput, DurationInput
 
+from tqdm import tqdm
 
 def load_phonemes_set_from_lexicon_file(fn: Path):
     S = set()
