@@ -34,7 +34,7 @@ def is_in_word(phone, word):
 
 def load_textgrid(fn: Path):
     tg = textgrid.TextGrid.fromFile(str(fn.resolve()))
-    print(f"tg now is:\n{tg}")
+    print(f"tg now is:\n{tg[0]}\n{tg[1]}")
     data = []
     words = list(tg[0])
     widx = 0
@@ -61,6 +61,7 @@ def textgrid_data_loader(data_dir: Path, seq_len: int, batch_size: int, mode: st
     assert mode in ["train", "val"]
     phonemes = load_phonemes_set_from_lexicon_file(data_dir / "lexicon.txt")
     phonemes = phonemes.append("''")
+    print(phonemes)
     if mode == "train":
         tg_files = tg_files[:L]
     if mode == "val":
