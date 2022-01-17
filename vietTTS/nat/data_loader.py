@@ -61,6 +61,7 @@ def textgrid_data_loader(data_dir: Path, seq_len: int, batch_size: int, mode: st
         tg_files = tg_files[L:]
 
     data = []
+    err_txt = "\n"
     for fn in tqdm(tg_files, total=len(tg_files), desc="Getting"):
         try:
             print(f"Getting data from {fn}")
@@ -80,7 +81,7 @@ def textgrid_data_loader(data_dir: Path, seq_len: int, batch_size: int, mode: st
         except AssertionError:
             print("Got AssertionError, skip this file...")
             with open("errors/asserterror.txt", "w") as f:
-                err_txt = f"{fn}" + "\n"
+                err_txt = err_txt + f"{fn}" + "\n"
                 f.write(err_txt)
 
     batch = []
