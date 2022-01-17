@@ -6,6 +6,7 @@
 import os
 from pathlib import Path
 import re
+import glob
 
 # Define dirs
 PROJECT_DIR = Path(__file__).absolute().parents[1]
@@ -95,7 +96,7 @@ class VietSoftPro:
         # Go through each file
         for file in list_of_files:
             with open(file, 'r') as f:
-                print(f'Getting words from {n}')
+                print(f'Getting words from {file}')
                 txt = f.read()
                 # Convert with tech_dict
                 txt = Convert().pattern.sub(lambda x: Convert().tech_dict[x.group()], txt)
