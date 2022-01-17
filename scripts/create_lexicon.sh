@@ -7,6 +7,8 @@ mkdir ./train_data/content
 mkdir ./train_data/content/wavs
 mkdir ./train_data/content/aligned
 
+# Handling transcripts
+python -m train_data.handling_transcript
 # Create words.txt file
 python -m train_data.create_words
 # Create lexicon.txt file
