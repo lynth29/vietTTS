@@ -8,6 +8,7 @@ import glob
 from pathlib import Path
 ## Encode text
 import re
+from create_words import *
 
 # Define dirs
 PROJECT_DIR = Path(__file__).absolute().parents[1]
@@ -25,6 +26,10 @@ class Vietnamese:
                 print(f'Getting words from {file}.txt')
                 txt = f.read()
                 f.seek(0)
+                # Convert with tech_dict
+                txt = Convert().pattern.sub(lambda x: Convert().tech_dict[x.group()], txt)
+                # Convert with int_dict
+                txt = Convert().pattern.sub(lambda x: Convert().int_dict[x.group()], txt)
                 # Remove punctuations
                 txt = re.sub("[^\w\s]", "", txt)
                 # Replace \n with blank
