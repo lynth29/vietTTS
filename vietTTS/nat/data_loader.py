@@ -72,7 +72,6 @@ def textgrid_data_loader(data_dir: Path, seq_len: int, batch_size: int, mode: st
             except ValueError:
                 phonemes = sorted(phonemes.append(p))
                 ps.append(phonemes.index(p))
-        ps = [phonemes.index(p) for p in ps]
         l = len(ps)
         ps = pad_seq(ps, seq_len, 0)
         ds = pad_seq(ds, seq_len, 0)
