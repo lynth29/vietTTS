@@ -86,34 +86,28 @@ class Convert:
 
 class VietSoftPro:
 
-    def __init__(self, num_of_file: int):
-        self.num_of_file = num_of_file
-
     def txt_to_words(self):
         """Import multiple txt files and make words list"""
         # Create an empty list to store output
         output = []
         # Go through each file
-        for n in range(1,self.num_of_file):
-            if n < 10:
-                n = "0" + str(n)
-            try:
-                with open(TRAIN_DIR + '/content/wavs/' + str(n) + '.txt', 'r') as f:
-                    print(f'Getting words from {n}.txt')
-                    txt = f.read()
-                    # Convert with tech_dict
-                    txt = Convert().pattern.sub(lambda x: Convert().tech_dict[x.group()], txt)
-                    # Remove punctuations
-                    txt = re.sub("[^\w\s]", " ", txt)
-                    # Replace \n with blank
-                    txt = txt.replace("\n"," ")
-                    # Split words
-                    word_list = txt.split(' ')
-                    # Add to output
-                    output.extend(word_list)
-            except FileNotFoundError:
-                continue
-        # Remove duplicates and sort
+        list_of_files = glob.glob(os.path.join(TRAIN_DIR, "content", "wavs", "*.txt"))
+        # Go through each file
+        for file in list_of_files:
+            with open(file, 'r') as f:
+                print(f'Getting words from {n}')
+                txt = f.read()
+                # Convert with tech_dict
+                txt = Convert().pattern.sub(lambda x: Convert().tech_dict[x.group()], txt)
+                # Remove punctuations
+                txt = re.sub("[^\w\s]", " ", txt)
+                # Replace \n with blank
+                txt = txt.replace("\n"," ")
+                # Split words
+                word_list = txt.split(' ')
+                # Add to output
+                output.extend(word_list)
+    # Remove duplicates and sort
         output = sorted([*{*output}])
         return output[1:]
 
@@ -150,7 +144,7 @@ class VietSoftPro:
 if __name__ == '__main__':
     print("=="*10)
     print("Creating words list...")
-    source = VietSoftPro(26)
+    source = VietSoftPro()
     raw_words = source.txt_to_words()
     print("Got all unique words")
     first = source.rom_to_words(raw_words)
