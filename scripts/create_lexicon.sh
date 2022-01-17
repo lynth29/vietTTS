@@ -1,6 +1,5 @@
 #!/bin/bash
 
-# A script to run Montreal Forced Aligner (MFA)
 # Create dirs in train_data
 echo "======="
 echo "Preparing contents to align dataset..."
