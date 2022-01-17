@@ -23,16 +23,14 @@ cp -r vietTTS-modified/scripts vietTTS/
 ```
 #### b. Các scripts từ folder `./train_data`
 ```sh
+mkdir vietTTS/errors
 mkdir vietTTS/train_data
 cp -r vietTTS-modified/train_data vietTTS/
 ```
 #### c. Các scripts từ folder `./vietTTS`
 ```sh
 cp vietTTS-modified/vietTTS/nat/config.py vietTTS/vietTTS/nat/config.py
-```
-#### d. File requirements.txt
-```sh
-cp vietTTS-modified/requirements.txt vietTTS/
+cp vietTTS-modified/vietTTS/nat/data_loader.py vietTTS/vietTTS/nat/data_loader.py
 ```
 File `config.py` đã thay đổi đường dẫn của `ckpt_dir` và `data_dir` để phù hợp với dataset từ `fileThuAm.zip`.
 - Đường dẫn cũ:
@@ -46,6 +44,12 @@ data_dir = Path("train_data")
 ckpt_dir = Path("assets/vietsoftpro/nat")
 data_dir = Path("assets/vietsoftpro/data")
 data_dir = Path("train_data/content")
+```
+
+
+#### d. File requirements.txt
+```sh
+cp vietTTS-modified/requirements.txt vietTTS/
 ```
 
 ### 3. Chuyển sang project vietTTS để bắt đầu cài đặt các thư viện cần thiết
