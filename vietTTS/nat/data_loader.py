@@ -62,7 +62,12 @@ def textgrid_data_loader(data_dir: Path, seq_len: int, batch_size: int, mode: st
 
     data = []
     for fn in tqdm(tg_files, total=len(tg_files), desc="Getting"):
-        ps, ds = zip(*load_textgrid(fn))
+        print(f"Getting data from {fn}")
+        ps_1, ds = zip(*load_textgrid(fn))
+        ps = []
+        for p in ps_1:
+            print(p)
+            ps.append(phonemes.index(p))
         ps = [phonemes.index(p) for p in ps]
         l = len(ps)
         ps = pad_seq(ps, seq_len, 0)
