@@ -61,14 +61,10 @@ python3 -m pip3 install git+https://github.com/deepmind/dm-haiku
 ```
 #### c. Cài đặt MFA
 ```sh
-cd vietTTS
 bash ./scripts/install_mfa.sh /tmp/mfa
 ```
 ### 4. Tải dataset
 Dataset sau khi tải được unzip tại folder `./train_data/content/wavs`.
-```sh
-bash ./scripts/download_dataset.sh
-```
 **Lưu ý**: Sau khi tải dataset, kiểm tra chính tả trong các file `.txt` để tạo được file `lexicon.txt` tốt nhất.
 ### 5. Tạo lexicon và align data
 Script `create_lexicon.sh` được viết riêng cho dataset từ `fileThuAm.zip`.
