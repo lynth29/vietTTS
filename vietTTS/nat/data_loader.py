@@ -1,6 +1,6 @@
 import random
 from pathlib import Path
-
+from tqdm import tqdm
 import numpy as np
 import textgrid
 from scipy.io import wavfile
@@ -61,7 +61,7 @@ def textgrid_data_loader(data_dir: Path, seq_len: int, batch_size: int, mode: st
         tg_files = tg_files[L:]
 
     data = []
-    for fn in tg_files:
+    for fn in tqdm(tg_files, total=len(tg_files), desc="Getting"):
         ps, ds = zip(*load_textgrid(fn))
         ps = [phonemes.index(p) for p in ps]
         l = len(ps)
