@@ -7,7 +7,6 @@ from scipy.io import wavfile
 
 from .config import FLAGS, AcousticInput, DurationInput
 
-from tqdm import tqdm
 
 def load_phonemes_set_from_lexicon_file(fn: Path):
     S = set()
@@ -34,23 +33,19 @@ def is_in_word(phone, word):
 
 def load_textgrid(fn: Path):
     tg = textgrid.TextGrid.fromFile(str(fn.resolve()))
-    print(f"tg now is:\n{tg[0]}\n{tg[1]}")
     data = []
     words = list(tg[0])
     widx = 0
     assert tg[1][0].minTime == 0, "The first phoneme has to start at time 0"
     for p in tg[1]:
-        print(f"p as {p} and word as {words[widx]}")
         if not p in words[widx]:
             widx = widx + 1
             if len(words[widx - 1].mark) > 0:
                 data.append((FLAGS.special_phonemes[FLAGS.word_end_index], 0.0))
             if widx >= len(words):
                 break
-            assert p in words[widx], f"mismatched word vs phoneme with p as {p} and word as {words[widx]}"
+            assert p in words[widx], "mismatched word vs phoneme"
         data.append((p.mark.strip().lower(), p.duration()))
-    print(f"data now is:\n{data}")
-    print("--"*10)
     return data
 
 
@@ -60,16 +55,13 @@ def textgrid_data_loader(data_dir: Path, seq_len: int, batch_size: int, mode: st
     L = len(tg_files) * 95 // 100
     assert mode in ["train", "val"]
     phonemes = load_phonemes_set_from_lexicon_file(data_dir / "lexicon.txt")
-    phonemes = phonemes.append("''")
-    print(phonemes)
     if mode == "train":
         tg_files = tg_files[:L]
     if mode == "val":
         tg_files = tg_files[L:]
 
     data = []
-    for fn in tqdm(tg_files, total=len(tg_files), desc="Loading"):
-        print(f"Loading textgrid from {fn}")
+    for fn in tg_files:
         ps, ds = zip(*load_textgrid(fn))
         ps = [phonemes.index(p) for p in ps]
         l = len(ps)
