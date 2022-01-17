@@ -4,9 +4,11 @@
 # Import essential libraries
 ## Work with files and folders
 import os
+import glob
 from pathlib import Path
 ## Encode text
 import unicodedata
+import re
 ## Progress bar
 from tqdm import tqdm
 
@@ -94,17 +96,6 @@ class Vietnamese:
             f.close()
         print("Finish creating lexicon.txt")
 
-    def create_corpus(self, script_csv):
-        """Function to create speech corpus from scripts"""
-        s = open(script_csv).readlines()
-        for l in s:
-            fn, txt, t = l.strip().split('|')
-            fn = Path(fn).stem
-            with open(TRAIN_DIR + '/content/wavs/' + f'{fn}.txt', 'w') as f:
-                f.write(txt + '\n')
-                f.close()
-        print("Finish creating speech corpus")
-
 if __name__ == '__main__':
     print("=="*10)
     print("Creating phonemes and dictionary...")
@@ -112,7 +103,5 @@ if __name__ == '__main__':
     vn = Vietnamese()
     # Create phonemes
     vn.create_phonemes()
-    # Create dictionary
+    # # Create dictionary
     vn.create_dictionary()
-    # Create Corpus
-    # vn.create_corpus(str(PROJECT_DIR) + '/assets/infore/' + 'scripts.csv')
