@@ -66,8 +66,12 @@ def textgrid_data_loader(data_dir: Path, seq_len: int, batch_size: int, mode: st
         ps_1, ds = zip(*load_textgrid(fn))
         ps = []
         for p in ps_1:
-            print(f"Appending {p} to ps")
-            ps.append(phonemes.index(p))
+            try:
+                print(f"Appending {p} to ps")
+                ps.append(phonemes.index(p))
+            except ValueError:
+                phonemes = sorted(phonemes.append(p))
+                ps.append(phonemes.index(p))
         ps = [phonemes.index(p) for p in ps]
         l = len(ps)
         ps = pad_seq(ps, seq_len, 0)
